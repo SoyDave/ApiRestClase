@@ -13,15 +13,36 @@ app.post('/reservas', function (peticion, respuesta) {
     let datos = peticion.body;
 
     if(datos.nombre==undefined){
-
         respuesta.status(400).json({
             mensaje:"Nombre es necesario"                
         });
-
+    }else if(datos.apellido==undefined){
+        respuesta.status(400).json({
+            mensaje:"Apellido es nesesario"
+        });
+    }else if(datos.telefono==undefined){
+        respuesta.status(400).json({
+            mensaje:"Telefono es nesesario"
+        });
+    }else if(datos.fechaInicioReserva==undefined){
+        respuesta.status(400).json({
+            mensaje:"Fecha del inicio de la reserva es nesesario"
+        });
+    }else if(datos.fechaFinReserva==undefined){
+        respuesta.status(400).json({
+            mensaje:"Fecha del final de la reserva es nesesario"
+        });
+    }else if(datos.numeroPersonas==undefined){
+        respuesta.status(400).json({
+            mensaje:"Definir la cantidad de personas es nesesario"
+        });
+    }else if(datos.tipoReserva==undefined){
+        respuesta.status(400).json({
+            mensaje:"Defirnir el tipo de reserva es nesesario"
+        });
     }else{  
         respuesta.json({reserva: datos});
     }
-
     
 });
  
